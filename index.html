@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nova Fem — Comunitatea Femeilor</title>
+  <meta name="description" content="Nova Fem este o comunitate de femei care se dezvoltă împreună prin evenimente, conexiune și inspirație.">
+  <style>
+    :root {
+      --accent: #b13b7a;
+      --bg: #ffffff;
+      --text: #1e1e1e;
+      --muted: #666;
+      --card: #f9f9f9;
+    }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid #eee;
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .logo-dot {
+      width: 40px;
+      height: 40px;
+      background: var(--accent);
+      border-radius: 12px;
+    }
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      margin-left: 1rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    h1, h2 {
+      color: var(--accent);
+    }
+    p.lead {
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
+    section {
+      margin-top: 3rem;
+    }
+    .events {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1rem;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .date {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+    .title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+    .desc {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 0.8rem;
+    }
+    .meta {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .btn:hover {
+      background: #962e68;
+    }
+    footer {
+      margin-top: 3rem;
+      text-align: center;
+      padding: 1.5rem;
+      border-top: 1px solid #eee;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .past {
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <div class="logo-dot"></div>
+      <div>
+        <strong>Nova Fem</strong><br>
+        <span style="font-size: 0.8rem; color: var(--muted);">Comunitatea Femeilor</span>
+      </div>
+    </div>
+    <nav>
+      <a href="#despre">Despre</a>
+      <a href="#evenimente">Evenimente</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="despre">
+      <h1>Despre Nova Fem</h1>
+      <p class="lead">
+        Nova Fem este o comunitate de femei din România care își doresc mai mult — claritate, echilibru, conexiune și dezvoltare.
+        Organizăm evenimente inspiraționale, workshopuri și retreat-uri dedicate femeilor care caută să se reconecteze la ele însele și la puterea lor interioară.
+      </p>
+    </section>
+
+    <section id="evenimente">
+      <h2>Evenimente viitoare</h2>
+      <div id="future-events" class="events"></div>
+
+      <h2 style="margin-top:2.5rem;">Evenimente trecute</h2>
+      <div id="past-events" class="events"></div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Vrei să afli despre următoarele evenimente sau să colaborezi? Scrie-ne:</p>
+      <p><strong>Email:</strong> contact@novafem.ro</p>
+      <p>Ne găsești și pe 
+        <a href="https://instagram.com/novafem.ro" target="_blank">Instagram</a> 
+        și 
+        <a href="https://tiktok.com/@novafemevents" target="_blank">TikTok</a>.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Nova Fem — Toate drepturile rezervate
+  </footer>
+
+  <script>
+    const futureEvents = [
+      {
+        title: "Tee Painting Workshop | Nova Fem",
+        date: "2025-10-20T18:00:00",
+        location: "București",
+        description: "Un atelier creativ unde fiecare participantă își personalizează propriul tricou într-un cadru relaxat, cu prosecco și good vibes.",
+        ticket_url: "https://app.hi.events/event/2973/tee-paiting-workshop"
+      },
+      {
+        title: "Relații Oglindă Interioară",
+        date: "2025-11-10T18:00:00",
+        location: "București",
+        description: "Un workshop de explorare a relațiilor ca oglinzi ale propriei noastre lumi interioare. Cu exerciții practice și reflecții ghidate.",
+        ticket_url: "https://www.livetickets.ro/bilete/relatii-oglinda-interioara?preview=true"
+      }
+    ];
+
+    const pastEvents = [
+      {
+        title: "Painting & Prosecco București",
+        date: "2025-08-10T18:00:00",
+        location: "București",
+        description: "O seară de relaxare și exprimare liberă prin artă, prosecco și conversații autentice între femei.",
+        ticket_url: "#"
+      },
+      {
+        title: "THE GODDESS WITHIN — Retreat de feminitate",
+        date: "2025-07-15T09:00:00",
+        location: "România, locație privată",
+        description: "Un retreat de feminitate dedicat reconectării cu energia interioară și înțelepciunea corpului feminin.",
+        ticket_url: "https://forms.gle/weUjZaUr4cuFg5zs5"
+      },
+      {
+        title: "Yoga Class on the pontoon",
+        date: "2025-06-22T09:00:00",
+        location: "Cluj-Napoca",
+        description: "Sesiune de yoga matinală pe ponton, în aer liber, pentru echilibru și claritate mentală.",
+        ticket_url: "#"
+      },
+      {
+        title: "🌿 Relații Conștiente – Vindecare & Armonie",
+        date: "2025-05-18T18:00:00",
+        location: "Online (Zoom)",
+        description: "Un workshop dedicat conștientizării și vindecării tiparelor relaționale, pentru a crea conexiuni mai autentice.",
+        ticket_url: "https://forms.gle/jKCZH3yxfsUDPDaRA"
+      },
+      {
+        title: "Pilates Class",
+        date: "2025-04-10T18:00:00",
+        location: "Cluj-Napoca",
+        description: "Sesiune de pilates cu focus pe respirație, postură și reconectare cu propriul corp.",
+        ticket_url: "#"
+      }
+    ];
+
+    function formatDate(iso) {
+      const d = new Date(iso);
+      return d.toLocaleString('ro-RO', { dateStyle: 'long', timeStyle: 'short' });
+    }
+
+    function renderEvents(list, containerId, isPast=false) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = "";
+      list.forEach(ev => {
+        const card = document.createElement("div");
+        card.className = "card" + (isPast ? " past" : "");
+        card.innerHTML = `
+          <div class="date">${formatDate(ev.date)}</div>
+          <div class="title">${ev.title}</div>
+          <div class="desc">${ev.description}</div>
+          <div class="meta"><strong>Loc:</strong> ${ev.location}</div>
+          ${ev.ticket_url !== "#" 
+            ? `<a class="btn" href="${ev.ticket_url}" target="_blank" rel="noopener">${isPast ? "Detalii eveniment" : "Rezervă locul"}</a>`
+            : `<span style="color: var(--muted); font-size: 0.9rem;">Eveniment încheiat</span>`
+          }
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    renderEvents(futureEvents, "future-events");
+    renderEvents(pastEvents, "past-events", true);
+  </script>
+</body>
+</html>
