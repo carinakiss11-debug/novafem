@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nova Fem — Comunitatea Femeilor</title>
+  <meta name="description" content="Nova Fem este o comunitate de femei care se dezvoltă împreună prin evenimente, conexiune și inspirație.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FFFDF8;         /* crem cald */
+      --surface: #FFFFFF;    /* alb curat pentru carduri */
+      --text: #1F1A17;       /* aproape negru, elegant */
+      --muted: #6B625B;      /* gri cald */
+      --gold: #C2A357;       /* auriu */
+      --blush: #E6CFC7;      /* accente roz-piersică foarte pal */
+      --ring: #EADFCF;       /* linii subtile */
+      --shadow: 0 8px 24px rgba(31,26,23,0.06);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(1200px 800px at 80% -10%, #FFF7EC 0%, #FFFDF8 40%, #FFFDF8 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    /* ---------- Header ---------- */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: saturate(160%) blur(8px);
+      background: rgba(255, 253, 248, 0.85);
+      border-bottom: 1px solid var(--ring);
+    }
+    .nav {
+      max-width: 1060px; margin: 0 auto; padding: 14px 18px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .brand-logo {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: linear-gradient(135deg, var(--gold), #E6C899);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 2px 8px rgba(194,163,87,0.25);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-family: "Playfair Display", serif; color: #fff; font-weight: 700; letter-spacing: .5px;
+    }
+    .brand-text { display: grid; }
+    .brand-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.2rem; line-height: 1; letter-spacing: .3px;
+    }
+    .brand-sub { font-size: .78rem; color: var(--muted); }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      margin-left: 18px;
+      font-weight: 600;
+      position: relative;
+    }
+    nav a::after {
+      content: ""; position: absolute; left: 0; bottom: -6px; width: 0; height: 2px;
+      background: linear-gradient(90deg, var(--gold), #E6C899);
+      transition: width .25s ease;
+    }
+    nav a:hover::after { width: 100%; }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      max-width: 1060px; margin: 42px auto 24px; padding: 0 18px;
+      display: grid; grid-template-columns: 1fr;
+    }
+    .hero-card {
+      background: var(--surface);
+      border: 1px solid var(--ring);
+      border-radius: 20px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::before {
+      content: ""; position: absolute; inset: -2px; pointer-events: none;
+      background: conic-gradient(from 180deg at 60% -10%, rgba(194,163,87,.18), transparent 25%, transparent 75%, rgba(230,200,153,.18));
+      filter: blur(12px);
+    }
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-weight: 600; letter-spacing: .2px;
+      font-size: 2.1rem; margin: 0 0 8px;
+    }
+    p.lead { color: var(--muted); font-size: 1.05rem; margin: 0; }
+
+    /* ---------- Section titles ---------- */
+    h2 {
+      font-family: "Playfair Display", serif;
+      font-weight: 600; letter-spacing: .2px;
+      font-size: 1.6rem; margin: 34px 0 10px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .divider {
+      flex: 1; height: 1px; background: linear-gradient(90deg, var(--gold), transparent);
+      opacity: .35;
+    }
+
+    /* ---------- Events ---------- */
+    .wrap { max-width: 1060px; margin: 0 auto; padding: 0 18px 64px; }
+    .events {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      margin-top: 12px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--ring);
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(31,26,23,0.08); }
+    .date { color: var(--muted); font-size: .92rem; margin-bottom: 4px; }
+    .title { font-weight: 700; font-size: 1.08rem; margin-bottom: 6px; letter-spacing: .2px; }
+    .desc { color: var(--muted); font-size: .95rem; margin-bottom: 10px; }
+    .meta { font-size: .92rem; color: var(--muted); margin-bottom: 12px; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 14px; border-radius: 999px;
+      border: 1.5px solid var(--gold);
+      background: linear-gradient(180deg, #FFF, #FFF7EC);
+      color: var(--text); font-weight: 700; text-decoration: none;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(194,163,87,0.25); }
+    .btn .dot {
+      width: 6px; height: 6px; border-radius: 99px; background: var(--gold);
+    }
+
+    .past { opacity: .72; }
+
+    /* ---------- Footer ---------- */
+    footer {
+      border-top: 1px solid var(--ring);
+      background: linear-gradient(180deg, rgba(255,255,255,.7), rgba(255,253,248,1));
+      text-align: center; padding: 28px 18px; color: var(--muted);
+      font-size: .95rem;
+    }
+
+    /* ---------- Utility ---------- */
+    .sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+    @media (max-width: 520px) {
+      h1 { font-size: 1.7rem; }
+      .brand-title { font-size: 1.05rem; }
+      .brand-logo { width: 40px; height: 40px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav">
+      <a class="brand" href="#top" aria-label="Nova Fem">
+        <!-- Dacă ai un logo, înlocuiește div-ul de mai jos cu <img src="logo.svg" alt="Nova Fem" class="brand-logo-img" style="max-height:44px"> -->
+        <div class="brand-logo">NF</div>
+        <div class="brand-text">
+          <span class="brand-title">Nova Fem</span>
+          <span class="brand-sub">Comunitatea Femeilor</span>
+        </div>
+      </a>
+      <nav>
+        <a href="#despre">Despre</a>
+        <a href="#viitoare">Evenimente</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main class="hero" id="despre">
+    <article class="hero-card">
+      <h1>Despre Nova Fem</h1>
+      <p class="lead">
+        Nova Fem este o comunitate de femei care își doresc mai mult — claritate, echilibru, conexiune și dezvoltare.
+        Organizăm evenimente inspiraționale, workshopuri și retreat-uri dedicate reconectării la feminitate, corp și încredere.
+      </p>
+    </article>
+  </main>
+
+  <!-- Events -->
+  <section class="wrap" id="viitoare">
+    <h2>Evenimente viitoare <span class="divider" aria-hidden="true"></span></h2>
+    <div id="future-events" class="events"></div>
+
+    <h2>Evenimente trecute <span class="divider" aria-hidden="true"></span></h2>
+    <div id="past-events" class="events"></div>
+  </section>
+
+  <!-- Contact -->
+  <section class="wrap" id="contact" style="padding-top:0;">
+    <h2>Contact <span class="divider" aria-hidden="true"></span></h2>
+    <p>Vrei să afli despre următoarele evenimente sau să colaborezi?</p>
+    <p><strong>Email:</strong> contact@novafem.ro</p>
+    <p>Suntem și pe <a href="https://instagram.com/novafem.ro" target="_blank" rel="noopener">Instagram</a> și <a href="https://tiktok.com/@novafemevents" target="_blank" rel="noopener">TikTok</a>.</p>
+  </section>
+
+  <footer>© 2025 Nova Fem — Toate drepturile rezervate</footer>
+
+  <script>
+    // ----------------------------
+    // Date evenimente
+    // ----------------------------
+    const futureEvents = [
+      {
+        title: "Tee Painting Workshop | Nova Fem",
+        date: "2025-10-20T18:00:00",
+        location: "București",
+        description: "Un atelier creativ unde fiecare participantă își personalizează propriul tricou într-un cadru relaxat, cu prosecco și good vibes.",
+        ticket_url: "https://app.hi.events/event/2973/tee-paiting-workshop"
+      },
+      {
+        title: "Relații Oglindă Interioară",
+        date: "2025-11-10T18:00:00",
+        location: "București",
+        description: "Un workshop de explorare a relațiilor ca oglinzi ale lumii noastre interioare, cu exerciții practice și reflecții ghidate.",
+        ticket_url: "https://www.livetickets.ro/bilete/relatii-oglinda-interioara?preview=true"
+      }
+    ];
+
+    const pastEvents = [
+      {
+        title: "Painting & Prosecco București",
+        date: "2025-08-10T18:00:00",
+        location: "București",
+        description: "O seară de relaxare și exprimare liberă prin artă, prosecco și conversații autentice între femei.",
+        ticket_url: "#"
+      },
+      {
+        title: "THE GODDESS WITHIN — Retreat de feminitate",
+        date: "2025-07-15T09:00:00",
+        location: "România, locație privată",
+        description: "Un retreat dedicat reconectării cu energia interioară și înțelepciunea corpului feminin.",
+        ticket_url: "https://forms.gle/weUjZaUr4cuFg5zs5"
+      },
+      {
+        title: "Yoga Class on the pontoon",
+        date: "2025-06-22T09:00:00",
+        location: "Cluj-Napoca",
+        description: "Sesiune de yoga matinală pe ponton, în aer liber, pentru echilibru și claritate mentală.",
+        ticket_url: "#"
+      },
+      {
+        title: "🌿 Relații Conștiente – Vindecare & Armonie",
+        date: "2025-05-18T18:00:00",
+        location: "Online (Zoom)",
+        description: "Workshop dedicat conștientizării și vindecării tiparelor relaționale, pentru a crea conexiuni mai autentice.",
+        ticket_url: "https://forms.gle/jKCZH3yxfsUDPDaRA"
+      },
+      {
+        title: "Pilates Class",
+        date: "2025-04-10T18:00:00",
+        location: "Cluj-Napoca",
+        description: "Sesiune de pilates cu focus pe respirație, postură și reconectare cu propriul corp.",
+        ticket_url: "#"
+      }
+    ];
+
+    // ----------------------------
+    // Render logic
+    // ----------------------------
+    function formatDate(iso) {
+      const d = new Date(iso);
+      return d.toLocaleString('ro-RO', { dateStyle: 'long', timeStyle: 'short' });
+    }
+
+    function el(tag, cls, html) {
+      const e = document.createElement(tag);
+      if (cls) e.className = cls;
+      if (html) e.innerHTML = html;
+      return e;
+    }
+
+    function render(list, containerId, isPast=false) {
+      const root = document.getElementById(containerId);
+      root.innerHTML = "";
+      list.forEach(ev => {
+        const card = el("article", "card" + (isPast ? " past" : ""));
+        card.append(
+          el("div", "date", formatDate(ev.date)),
+          el("div", "title", ev.title),
+          el("div", "desc", ev.description),
+          el("div", "meta", "<strong>Loc:</strong> " + ev.location),
+        );
+        if (ev.ticket_url && ev.ticket_url !== "#") {
+          const a = el("a", "btn");
+          a.href = ev.ticket_url; a.target = "_blank"; a.rel = "noopener";
+          a.innerHTML = '<span class="dot" aria-hidden="true"></span> ' + (isPast ? "Detalii eveniment" : "Rezervă locul");
+          card.appendChild(a);
+        } else {
+          const span = el("span", null, "Eveniment încheiat");
+          span.style.color = "var(--muted)";
+          span.style.fontSize = ".9rem";
+          card.appendChild(span);
+        }
+        root.appendChild(card);
+      });
+    }
+
+    render(futureEvents, "future-events");
+    render(pastEvents, "past-events", true);
+  </script>
+</body>
+</html>
